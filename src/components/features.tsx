@@ -50,7 +50,7 @@ const HalftoneDecoration = () => (
 const ConcentricArcsDecoration = () => (
     <div className="absolute bottom-0 left-0 right-0 h-[50%] overflow-hidden opacity-30 transition-all duration-700 ease-out group-hover:opacity-50 group-hover:h-[60%]">
         <svg
-            className="w-full h-full"
+            className="size-full arcs-svg"
             viewBox="0 0 400 150"
             preserveAspectRatio="xMidYMax slice"
         >
@@ -70,13 +70,13 @@ const ConcentricArcsDecoration = () => (
             ))}
         </svg>
         <style>{`
-      .group:hover svg path:nth-child(1) { transform: translateY(-4px); }
-      .group:hover svg path:nth-child(2) { transform: translateY(-8px); }
-      .group:hover svg path:nth-child(3) { transform: translateY(-12px); }
-      .group:hover svg path:nth-child(4) { transform: translateY(-16px); }
-      .group:hover svg path:nth-child(5) { transform: translateY(-20px); }
-      .group:hover svg path:nth-child(6) { transform: translateY(-24px); }
-      .group:hover svg path:nth-child(7) { transform: translateY(-28px); }
+      .group:hover .arcs-svg path:nth-child(1) { transform: translateY(-4px); }
+      .group:hover .arcs-svg path:nth-child(2) { transform: translateY(-8px); }
+      .group:hover .arcs-svg path:nth-child(3) { transform: translateY(-12px); }
+      .group:hover .arcs-svg path:nth-child(4) { transform: translateY(-16px); }
+      .group:hover .arcs-svg path:nth-child(5) { transform: translateY(-20px); }
+      .group:hover .arcs-svg path:nth-child(6) { transform: translateY(-24px); }
+      .group:hover .arcs-svg path:nth-child(7) { transform: translateY(-28px); }
     `}</style>
     </div>
 );
@@ -119,7 +119,7 @@ const ZigzagDecoration = () => (
                     style={{
                         strokeDasharray: "800",
                         strokeDashoffset: "0",
-                        transition: `stroke-dashoffset ${0.6 + i * 0.08}s ease-out, opacity 0.5s`,
+                        transition: `all ${0.6 + i * 0.08}s ease-out, opacity 0.5s`,
                     }}
                 />
             ))}
@@ -232,7 +232,7 @@ function FeatureCard({
             {/* Content */}
             <div className="relative z-10 flex flex-col h-full p-8 md:p-10">
                 {/* Header */}
-                <div className="flex-1">
+                <div className="flex-1 items-center flex flex-col">
                     <h3
                         className={`font-serif text-2xl md:text-3xl lg:text-4xl mb-4 leading-tight ${
                             feature.theme === "dark"
@@ -243,7 +243,7 @@ function FeatureCard({
                         {feature.title}
                     </h3>
                     <p
-                        className={`text-base md:text-lg max-w-sm leading-relaxed ${
+                        className={`text-base md:text-lg max-w-sm leading-relaxed text-center ${
                             feature.theme === "dark"
                                 ? "text-background/70"
                                 : "text-muted-foreground"
@@ -260,7 +260,23 @@ function FeatureCard({
                         className={`cta-button inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium tracking-wide uppercase transition-all duration-300 ${buttonStyles[feature.theme]}`}
                     >
                         {feature.cta}
-                        <ArrowRight className="w-4 h-4 transition-transform duration-300" />
+                        <svg
+                            width="100%"
+                            height="100%"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="size-4"
+                        >
+                            <title>Arrow Right</title>
+                            <path
+                                d="M4 12H20M20 12L14 6M20 12L14 18"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            />
+                        </svg>
                     </button>
                 </div>
             </div>

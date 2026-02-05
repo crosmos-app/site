@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 export function Hero() {
     return (
-        <section className="min-h-screen flex items-center justify-center pt-20 relative overflow-hidden">
+        <section className="min-h-screen flex items-center justify-center pt-42 relative overflow-hidden">
             {/* Parallax Background */}
             {/* <div
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat will-change-transform"

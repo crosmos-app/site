@@ -46,7 +46,7 @@ export function Privacy() {
     const { ref, isVisible } = useScrollAnimation();
 
     return (
-        <section id="os-access" className="section-padding overflow-hidden">
+        <section id="privacy" className="section-padding overflow-hidden">
             <div className="max-w-7xl mx-auto px-6" ref={ref}>
                 <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
                     {/* Text Content */}
@@ -68,7 +68,7 @@ export function Privacy() {
                                 </span>
                                 <span>+</span>
                                 <span className="border border-border rounded-md px-3 py-2 bg-background shadow-sm text-foreground">
-                                    K
+                                    N
                                 </span>
                             </div>
                             <span className="text-muted-foreground font-sans uppercase tracking-widest text-xs">
@@ -81,7 +81,7 @@ export function Privacy() {
                     <div
                         className={`relative transition-all duration-700 delay-200 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"}`}
                     >
-                        <div className="relative rounded-xl bg-gradient-to-br from-crosmos-dark to-crosmos-dark/80 p-2 shadow-2xl transform rotate-1 hover:rotate-0 transition-transform duration-700">
+                        <div className="relative rounded-xl bg-linear-to-br from-crosmos-dark to-crosmos-dark/80 p-2 shadow-2xl transform rotate-1 hover:rotate-0 transition-transform duration-700">
                             <div className="absolute top-0 left-0 w-full h-full bg-black/40 z-0 rounded-xl"></div>
                             {/* Wallpaper representation */}
                             <div

@@ -1,6 +1,6 @@
 "use client";
 
-import { Facebook, Instagram, Twitter } from "lucide-react";
+import Image from "next/image";
 
 export function Footer() {
     return (
@@ -116,24 +116,42 @@ export function Footer() {
                         >
                             Connect with Us
                         </h3>
-                        <div className="flex gap-4">
+                        <div className="flex gap-4 justify-center">
                             <a
                                 href="#"
                                 className="text-[#888] hover:text-[#333] transition-colors"
                             >
-                                <Facebook size={20} />
+                                <Image
+                                    src="/brand/x.svg"
+                                    width={20}
+                                    height={20}
+                                    alt="X"
+                                />
+                            </a>
+
+                            <a
+                                href="#"
+                                className="text-[#888] hover:text-[#333] transition-colors"
+                            >
+                                <Image
+                                    src="/brand/instagram.svg"
+                                    width={20}
+                                    height={20}
+                                    alt="X"
+                                    className="text-[#888] hover:text-[#333] transition-colors"
+                                />
                             </a>
                             <a
                                 href="#"
                                 className="text-[#888] hover:text-[#333] transition-colors"
                             >
-                                <Instagram size={20} />
-                            </a>
-                            <a
-                                href="#"
-                                className="text-[#888] hover:text-[#333] transition-colors"
-                            >
-                                <Twitter size={20} />
+                                <Image
+                                    src="/brand/discord.svg"
+                                    width={20}
+                                    height={20}
+                                    alt="X"
+                                    className="text-[#888] hover:text-[#333] transition-colors"
+                                />
                             </a>
                         </div>
                     </div>
