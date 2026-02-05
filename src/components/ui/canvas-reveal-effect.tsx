@@ -1,9 +1,9 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import React, { useMemo, useRef } from "react";
 import * as THREE from "three";
+import { cn } from "@/lib/utils";
 
 export const CanvasRevealEffect = ({
     animationSpeed = 0.4,
@@ -21,21 +21,12 @@ export const CanvasRevealEffect = ({
     showGradient?: boolean;
 }) => {
     return (
-        <div
-            className={cn(
-                "h-full relative bg-background w-full",
-                containerClassName,
-            )}
-        >
+        <div className={cn("relative h-full w-full bg-background", containerClassName)}>
             <div className="h-full w-full">
                 <DotMatrix
                     colors={colors ?? [[0, 255, 255]]}
                     dotSize={dotSize ?? 3}
-                    opacities={
-                        opacities ?? [
-                            0.3, 0.3, 0.3, 0.5, 0.5, 0.5, 0.8, 0.8, 0.8, 1,
-                        ]
-                    }
+                    opacities={opacities ?? [0.3, 0.3, 0.3, 0.5, 0.5, 0.5, 0.8, 0.8, 0.8, 1]}
                     shader={`
               float animation_speed_factor = ${animationSpeed.toFixed(1)};
               float intro_offset = distance(u_resolution / 2.0 / u_total_size, st2) * 0.01 + (random(st2) * 0.15);
@@ -45,9 +36,7 @@ export const CanvasRevealEffect = ({
                     center={["x", "y"]}
                 />
             </div>
-            {showGradient && (
-                <div className="absolute inset-0 bg-gradient-to-t from-background to-[84%]" />
-            )}
+            {showGradient && <div className="absolute inset-0 bg-gradient-to-t from-background to-[84%]" />}
         </div>
     );
 };
@@ -70,41 +59,16 @@ const DotMatrix: React.FC<DotMatrixProps> = ({
     center = ["x", "y"],
 }) => {
     const uniforms = React.useMemo(() => {
-        let colorsArray = [
-            colors[0],
-            colors[0],
-            colors[0],
-            colors[0],
-            colors[0],
-            colors[0],
-        ];
+        let colorsArray = [colors[0], colors[0], colors[0], colors[0], colors[0], colors[0]];
         if (colors.length === 2) {
-            colorsArray = [
-                colors[0],
-                colors[0],
-                colors[0],
-                colors[1],
-                colors[1],
-                colors[1],
-            ];
+            colorsArray = [colors[0], colors[0], colors[0], colors[1], colors[1], colors[1]];
         } else if (colors.length === 3) {
-            colorsArray = [
-                colors[0],
-                colors[0],
-                colors[1],
-                colors[1],
-                colors[2],
-                colors[2],
-            ];
+            colorsArray = [colors[0], colors[0], colors[1], colors[1], colors[2], colors[2]];
         }
 
         return {
             u_colors: {
-                value: colorsArray.map((color) => [
-                    color[0] / 255,
-                    color[1] / 255,
-                    color[2] / 255,
-                ]),
+                value: colorsArray.map((color) => [color[0] / 255, color[1] / 255, color[2] / 255]),
                 type: "uniform3fv",
             },
             u_opacities: {
@@ -178,15 +142,7 @@ type Uniforms = {
     };
 };
 
-const ShaderMaterial = ({
-    source,
-    uniforms,
-    maxFps = 60,
-}: {
-    source: string;
-    maxFps?: number;
-    uniforms: Uniforms;
-}) => {
+const ShaderMaterial = ({ source, uniforms, maxFps = 60 }: { source: string; maxFps?: number; uniforms: Uniforms }) => {
     const { size } = useThree();
     const ref = useRef<THREE.Mesh>(null);
     let lastFrameTime = 0;
@@ -216,9 +172,7 @@ const ShaderMaterial = ({
                     break;
                 case "uniform3f":
                     preparedUniforms[uniformName] = {
-                        value: new THREE.Vector3().fromArray(
-                            uniform.value as number[],
-                        ),
+                        value: new THREE.Vector3().fromArray(uniform.value as number[]),
                     };
                     break;
                 case "uniform1fv":
@@ -226,16 +180,12 @@ const ShaderMaterial = ({
                     break;
                 case "uniform3fv":
                     preparedUniforms[uniformName] = {
-                        value: (uniform.value as number[][]).map(
-                            (v: number[]) => new THREE.Vector3().fromArray(v),
-                        ),
+                        value: (uniform.value as number[][]).map((v: number[]) => new THREE.Vector3().fromArray(v)),
                     };
                     break;
                 case "uniform2f":
                     preparedUniforms[uniformName] = {
-                        value: new THREE.Vector2().fromArray(
-                            uniform.value as number[],
-                        ),
+                        value: new THREE.Vector2().fromArray(uniform.value as number[]),
                     };
                     break;
                 default:
@@ -244,8 +194,8 @@ const ShaderMaterial = ({
             }
         }
 
-        preparedUniforms["u_time"] = { value: 0 };
-        preparedUniforms["u_resolution"] = {
+        preparedUniforms.u_time = { value: 0 };
+        preparedUniforms.u_resolution = {
             value: new THREE.Vector2(size.width * 2, size.height * 2),
         };
         return preparedUniforms;
@@ -275,7 +225,7 @@ const ShaderMaterial = ({
         });
 
         return materialObject;
-    }, [size.width, size.height, source]);
+    }, [source, getUniforms]);
 
     return (
         <mesh ref={ref}>
@@ -294,11 +244,7 @@ interface ShaderProps {
 const Shader: React.FC<ShaderProps> = ({ source, uniforms, maxFps = 60 }) => {
     return (
         <Canvas className="absolute inset-0 h-full w-full">
-            <ShaderMaterial
-                source={source}
-                uniforms={uniforms}
-                maxFps={maxFps}
-            />
+            <ShaderMaterial source={source} uniforms={uniforms} maxFps={maxFps} />
         </Canvas>
     );
 };

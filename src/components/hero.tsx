@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 export function Hero() {
     return (
-        <section className="min-h-screen flex items-center justify-center pt-42 relative overflow-hidden">
+        <section className="relative flex min-h-screen items-center justify-center overflow-hidden pt-42">
             {/* Parallax Background */}
             {/* <div
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat will-change-transform"
@@ -20,16 +20,16 @@ export function Hero() {
                 loop
                 muted
                 playsInline
-                className="absolute inset-0 w-full h-full object-cover"
+                className="absolute inset-0 h-full w-full object-cover"
             />
 
             {/* Gradient Fade to Content */}
-            <div className="absolute bottom-0 left-0 right-0 h-48 bg-linear-to-t from-background to-transparent" />
+            <div className="absolute right-0 bottom-0 left-0 h-48 bg-linear-to-t from-background to-transparent" />
 
             {/* Content */}
-            <div className="container-narrow text-center relative z-10">
+            <div className="container-narrow relative z-10 text-center">
                 <h1
-                    className="font-serif text-display text-balance opacity-0 animate-fade-in"
+                    className="animate-fade-in text-balance font-serif text-display opacity-0"
                     style={{ animationDelay: "0.1s" }}
                 >
                     Search your memory.
@@ -38,7 +38,7 @@ export function Hero() {
                 </h1>
 
                 <p
-                    className="mt-8 text-body-lg text-muted-foreground max-w-xl mx-auto text-balance opacity-0 animate-fade-in"
+                    className="mx-auto mt-8 max-w-xl animate-fade-in text-balance text-body-lg text-muted-foreground opacity-0"
                     style={{ animationDelay: "0.3s" }}
                 >
                     Save what matters. Retrieve it by meaning, not filenames.
@@ -46,28 +46,22 @@ export function Hero() {
                     Crosmos turns your knowledge into action.
                 </p>
 
-                <div
-                    className="mt-12 opacity-0 animate-fade-in"
-                    style={{ animationDelay: "0.5s" }}
-                >
+                <div className="mt-12 animate-fade-in opacity-0" style={{ animationDelay: "0.5s" }}>
                     <Button
                         size="lg"
-                        className="text-base font-normal px-8 py-6 h-auto rounded-full transition-all duration-200 hover:scale-105"
+                        className="h-auto rounded-full px-8 py-6 font-normal text-base transition-all duration-200 hover:scale-105"
                     >
                         Get early access
                     </Button>
                 </div>
 
-                <div
-                    className="mt-24 opacity-0 animate-fade-in"
-                    style={{ animationDelay: "0.7s" }}
-                >
-                    <div className="w-full aspect-16/10 bg-card/80 backdrop-blur-sm rounded-lg border border-border overflow-hidden shadow-lg">
-                        <div className="w-full h-full flex items-center justify-center">
-                            <div className="text-center p-8">
-                                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-muted flex items-center justify-center">
+                <div className="mt-24 animate-fade-in opacity-0" style={{ animationDelay: "0.7s" }}>
+                    <div className="aspect-16/10 w-full overflow-hidden rounded-lg border border-border bg-card/80 shadow-lg backdrop-blur-sm">
+                        <div className="flex h-full w-full items-center justify-center">
+                            <div className="p-8 text-center">
+                                <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-muted">
                                     <svg
-                                        className="w-8 h-8 text-muted-foreground"
+                                        className="h-8 w-8 text-muted-foreground"
                                         fill="none"
                                         stroke="currentColor"
                                         viewBox="0 0 24 24"
@@ -80,9 +74,7 @@ export function Hero() {
                                         />
                                     </svg>
                                 </div>
-                                <p className="text-sm text-muted-foreground">
-                                    Product Preview
-                                </p>
+                                <p className="text-muted-foreground text-sm">Product Preview</p>
                             </div>
                         </div>
                     </div>

@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { Button } from "@/components/ui/button";
 import { config } from "../../config";
 
 export function Navigation() {
@@ -20,42 +20,37 @@ export function Navigation() {
 
     return (
         <header
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-                isScrolled
-                    ? "bg-background/60 backdrop-blur-3xl shadow-xs"
-                    : "bg-transparent"
+            className={`fixed top-0 right-0 left-0 z-50 transition-all duration-300 ${
+                isScrolled ? "bg-background/60 shadow-xs backdrop-blur-3xl" : "bg-transparent"
             }`}
         >
-            <nav className="container-wide flex items-center justify-between h-16 md:h-20">
-                <a
-                    href="/"
-                    className="text-xl md:text-xl font-semibold tracking-tight uppercase min-w-[120px]"
-                >
+            <nav className="container-wide flex h-16 items-center justify-between md:h-20">
+                <a href="/" className="min-w-[120px] font-semibold text-xl uppercase tracking-tight md:text-xl">
                     <Image
                         src="/logo.jpg"
                         alt="logo"
                         width={40}
                         height={40}
-                        className="rounded-xl aspect-square object-cover"
+                        className="aspect-square rounded-xl object-cover"
                     />
                 </a>
 
-                <div className="hidden md:flex items-center gap-8">
+                <div className="hidden items-center gap-8 md:flex">
                     <a
                         href="#features"
-                        className="text-sm text-muted-foreground hover:text-foreground transition-colors link-underline"
+                        className="link-underline text-muted-foreground text-sm transition-colors hover:text-foreground"
                     >
                         Features
                     </a>
                     <a
                         href="#privacy"
-                        className="text-sm text-muted-foreground hover:text-foreground transition-colors link-underline"
+                        className="link-underline text-muted-foreground text-sm transition-colors hover:text-foreground"
                     >
                         Privacy
                     </a>
                     <a
                         href="#about"
-                        className="text-sm text-muted-foreground hover:text-foreground transition-colors link-underline"
+                        className="link-underline text-muted-foreground text-sm transition-colors hover:text-foreground"
                     >
                         About
                     </a>
@@ -63,7 +58,7 @@ export function Navigation() {
 
                 <Button
                     size="sm"
-                    className="text-sm font-normal px-4 py-2 h-auto rounded-full transition-all duration-200 hover:scale-105"
+                    className="h-auto rounded-full px-4 py-2 font-normal text-sm transition-all duration-200 hover:scale-105"
                 >
                     <Link href={config.waitlist} target="_blank">
                         Join the waitlist

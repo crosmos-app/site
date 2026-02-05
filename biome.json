@@ -11,20 +11,48 @@
     },
     "formatter": {
         "enabled": true,
+        "formatWithErrors": false,
         "indentStyle": "space",
-        "indentWidth": 4
+        "indentWidth": 4,
+        "lineEnding": "lf",
+        "lineWidth": 120
     },
     "linter": {
         "enabled": true,
         "rules": {
             "recommended": true,
             "suspicious": {
-                "noUnknownAtRules": "off"
+                "noUnknownAtRules": "off",
+                "noArrayIndexKey": "off"
+            },
+            "a11y": {
+                "useKeyWithClickEvents": "off",
+                "noStaticElementInteractions": "off",
+                "useButtonType": "off",
+                "useSemanticElements": "off"
+            },
+            "nursery": {
+                "useSortedClasses": "warn"
             }
         },
         "domains": {
             "next": "recommended",
             "react": "recommended"
+        }
+    },
+    "javascript": {
+        "formatter": {
+            "quoteStyle": "double",
+            "jsxQuoteStyle": "double",
+            "quoteProperties": "asNeeded",
+            "trailingCommas": "es5",
+            "semicolons": "always",
+            "arrowParentheses": "always",
+            "bracketSpacing": true,
+            "bracketSameLine": false
+        },
+        "parser": {
+            "unsafeParameterDecoratorsEnabled": true
         }
     },
     "assist": {
