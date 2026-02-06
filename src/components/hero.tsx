@@ -1,19 +1,12 @@
 "use client";
 
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { config } from "../../config";
 
 export function Hero() {
     return (
         <section className="relative flex min-h-screen items-center justify-center overflow-hidden pt-42">
-            {/* Parallax Background */}
-            {/* <div
-                className="absolute inset-0 bg-cover bg-center bg-no-repeat will-change-transform"
-                style={{
-                    backgroundImage: `url(${heroBg})`,
-                    transform: `translateY(${parallaxOffset}px) scale(1.1)`,
-                }}
-            /> */}
-
             <video
                 src="/background/cloud-seamless.webm"
                 autoPlay
@@ -38,7 +31,7 @@ export function Hero() {
                 </h1>
 
                 <p
-                    className="mx-auto mt-8 max-w-xl animate-fade-in text-balance text-body-lg text-muted-foreground opacity-0"
+                    className="mx-auto mt-8 max-w-xl animate-fade-in text-balance text-body-lg text-foreground/80 opacity-0"
                     style={{ animationDelay: "0.3s" }}
                 >
                     Save what matters. Retrieve it by meaning, not filenames.
@@ -51,7 +44,9 @@ export function Hero() {
                         size="lg"
                         className="h-auto rounded-full px-8 py-6 font-normal text-base transition-all duration-200 hover:scale-105"
                     >
-                        Get early access
+                        <Link href={config.waitlist} target="_blank">
+                            Get early access
+                        </Link>
                     </Button>
                 </div>
 
@@ -66,6 +61,7 @@ export function Hero() {
                                         stroke="currentColor"
                                         viewBox="0 0 24 24"
                                     >
+                                        <title>Search</title>
                                         <path
                                             strokeLinecap="round"
                                             strokeLinejoin="round"
@@ -78,7 +74,6 @@ export function Hero() {
                             </div>
                         </div>
                     </div>
-                    {/* <img src={productPreview} alt="Product Preview" className="w-full h-full object-cover" width={2000} height={1000} /> */}
                 </div>
             </div>
         </section>

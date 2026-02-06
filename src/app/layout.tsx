@@ -23,7 +23,7 @@ export const ebGaramond = EB_Garamond({
 export const metadata: Metadata = {
     title: "Crosmos — Search your memory. Not your files.",
     description:
-        "Crosmos is a private, AI-powered memory and knowledge system. Save anything, search by meaning, and turn your knowledge into action.",
+        "Crosmos is an AI-powered memory and knowledge system. Save anything, search by meaning, and turn your knowledge into action.",
     authors: [{ name: "Crosmos Team" }],
     applicationName: "Crosmos",
 };

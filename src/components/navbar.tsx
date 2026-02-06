@@ -38,19 +38,19 @@ export function Navigation() {
                 <div className="hidden items-center gap-8 md:flex">
                     <a
                         href="#features"
-                        className="link-underline text-muted-foreground text-sm transition-colors hover:text-foreground"
+                        className="link-underline text-foreground/80 text-sm transition-colors hover:text-foreground"
                     >
                         Features
                     </a>
                     <a
                         href="#privacy"
-                        className="link-underline text-muted-foreground text-sm transition-colors hover:text-foreground"
+                        className="link-underline text-foreground/80 text-sm transition-colors hover:text-foreground"
                     >
                         Privacy
                     </a>
                     <a
                         href="#about"
-                        className="link-underline text-muted-foreground text-sm transition-colors hover:text-foreground"
+                        className="link-underline text-foreground/80 text-sm transition-colors hover:text-foreground"
                     >
                         About
                     </a>
